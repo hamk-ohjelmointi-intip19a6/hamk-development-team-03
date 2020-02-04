@@ -60,13 +60,13 @@ namespace ZombieLotto
         }
     }
 
-public class userInterface
+    public class userInterface
     {
         public static void UserChooseOption()
         {
             // userInterface: Rohullah Karimi 2020
             int option;
-            Console.WriteLine("Choose your option\n 1. Completed line \n 2. Choose your numbers");
+            Console.WriteLine("Choose your option\n [1] Completed line \n [2] Choose your numbers");
             option = Int32.Parse(Console.ReadLine());
             if (option == 1)
             {
@@ -83,9 +83,7 @@ public class userInterface
         }
     }
 
-
-
-public class userChooseNumbers
+    public class userChooseNumbers
     {
         public static void ProgramGuessNumbersForUser()
         {
@@ -125,14 +123,15 @@ public class userChooseNumbers
         }
     }
 
+
     public class LotteryDay
     {
         public static void LotteryNumber()
         {
             zombieLottoLotteryDay receivedMoney = new zombieLottoLotteryDay();
 
-           // double getMoneyValue = zombieLottoLotteryDay.CheckForReceivedMoney();
-            //Console.WriteLine("tervehdys arvo: " + haeTervehdysArvot);
+           //double getMoneyValue = zombieLottoLotteryDay.CheckForReceivedMoney();
+           // Console.WriteLine("tervehdys arvo: " + haeTervehdysArvot);
         }
     }
 
@@ -146,55 +145,9 @@ public class userChooseNumbers
             // this is test value for receivedMoney 
             double receivedMoney = 10.00;
         }
-
-       // public double CheckForReceivedMoney()
-     //   {
-           // return ReceivedMoney;
-     //   }
     }
 }
 
-/*
- *
- *
- *    class Program
-    {
-      
-        public static void Main(string[] args)
-        {
-            Tervehtijä tervehtija = new Tervehtijä();
-
-            // aseta metoodit
-            tervehtija.AsetaTervehdys("");
-            tervehtija.Tervehdi("");
-
-            var haeTervehdysArvot = tervehtija.HaeTervehdys();
-            Console.WriteLine("tervehdys arvo: " + haeTervehdysArvot);
-        }
-    }
-    public class Tervehtijä
-    {
-        //string tervehdys, itseTervehdys;
-
-        string tervehdys { get; set; }
-        string OmaTervehdys { get; set; }
-
-        public void AsetaTervehdys(string uusiTervehdys)
-        {
-            tervehdys = "Moi";
-            var uusitervehdys = "Moikka";
-        }
-        public void Tervehdi(string omaTervehdys)
-        {
-            OmaTervehdys = "Moro";
-        }
-        public string HaeTervehdys()
-        {
-            return tervehdys;
-        }
-    }
- *
- * */
 
 
 
