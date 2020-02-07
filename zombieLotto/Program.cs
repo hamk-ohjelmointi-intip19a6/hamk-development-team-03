@@ -17,8 +17,10 @@ namespace ZombieLotto
     {
         public static void Main(string[] args)
         {
+            LotteryDay.LotteryNumber();
             StartUserInterface.Startmenu();
             UserInterface.UserChooseOption();
+            
         }
     } 
 }

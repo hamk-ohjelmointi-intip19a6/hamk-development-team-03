@@ -1,4 +1,7 @@
 ﻿using System;
+using Newtonsoft.Json;
+
+
 namespace ZombieLotto
 {
     /*TODO:
@@ -130,20 +133,20 @@ namespace ZombieLotto
         {
             zombieLottoLotteryDay receivedMoney = new zombieLottoLotteryDay();
 
-           //double getMoneyValue = zombieLottoLotteryDay.CheckForReceivedMoney();
-           // Console.WriteLine("tervehdys arvo: " + haeTervehdysArvot);
+            double getMoneyValue = zombieLottoLotteryDay.ReceivedMoney();
+            Console.WriteLine("Collected money is: " + getMoneyValue);
         }
     }
 
     public class zombieLottoLotteryDay
     {
-        double receivedMoney { get; set; }
-
+        static double receivedMoney { get; set; }
       
-        public static void ReceivedMoney()
+        public static double ReceivedMoney()
         {
             // this is test value for receivedMoney 
-            double receivedMoney = 10.00;
+            receivedMoney = 10.00;
+            return receivedMoney;
         }
     }
 }
