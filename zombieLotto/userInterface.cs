@@ -20,7 +20,7 @@ namespace ZombieLotto
         // startmenu: Paavo Latvaniemi 2020
         // program doesn't go to the main menu if successfulSignIn is false
         public static bool successfulSignIn = false;
-        public static void Startmenu()
+        public static void startmenu()
         {
             while (successfulSignIn == false)
             {
@@ -60,21 +60,21 @@ namespace ZombieLotto
         }
     }
 
-    public class UserInterface
+    public class userInterface
     {
         public static void UserChooseOption()
         {
-            // UserInterface: Rohullah Karimi 2020
+            // userInterface: Rohullah Karimi 2020
             int option;
             Console.WriteLine("Choose your option\n [1] Completed line \n [2] Choose your numbers");
             option = Int32.Parse(Console.ReadLine());
             if (option == 1)
             {
-                UserChooseNumbers.ProgramGuessNumbersForUser();
+                userChooseNumbers.ProgramGuessNumbersForUser();
             }
             else if (option == 2)
             {
-                UserChooseNumbers.AskUserForFiveNumbers();
+                userChooseNumbers.AskUserForFiveNumbers();
             }
             else
             {
@@ -83,7 +83,7 @@ namespace ZombieLotto
         }
     }
 
-    public class UserChooseNumbers
+    public class userChooseNumbers
     {
         public static void ProgramGuessNumbersForUser()
         {
@@ -92,7 +92,6 @@ namespace ZombieLotto
 
             for (int round = 0; round < 5; round++)
             {
-
                 int num = randomNumbers.Next(1, 25);
                 lineNumber[round] = num;
             }
@@ -129,14 +128,14 @@ namespace ZombieLotto
     {
         public static void LotteryNumber()
         {
-            ZombieLottoLotteryDay receivedMoney = new ZombieLottoLotteryDay();
+            zombieLottoLotteryDay receivedMoney = new zombieLottoLotteryDay();
 
            //double getMoneyValue = zombieLottoLotteryDay.CheckForReceivedMoney();
            // Console.WriteLine("tervehdys arvo: " + haeTervehdysArvot);
         }
     }
 
-    public class ZombieLottoLotteryDay
+    public class zombieLottoLotteryDay
     {
         double receivedMoney { get; set; }
 
