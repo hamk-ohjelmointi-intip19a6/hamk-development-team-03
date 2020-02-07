@@ -9,6 +9,7 @@ namespace ZombieLotto
 {
     class UserProfile
     {
+        // Users profile info
         public static string validUsername = "admin";
         public static string validPassword = "admin";
 
