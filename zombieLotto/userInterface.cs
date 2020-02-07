@@ -20,7 +20,7 @@ namespace ZombieLotto
         // startmenu: Paavo Latvaniemi 2020
         // program doesn't go to the main menu if successfulSignIn is false
         public static bool successfulSignIn = false;
-        public static void startmenu()
+        public static void Startmenu()
         {
             while (successfulSignIn == false)
             {
@@ -60,7 +60,7 @@ namespace ZombieLotto
         }
     }
 
-    public class userInterface
+    public class UserInterface
     {
         public static void UserChooseOption()
         {
@@ -70,11 +70,11 @@ namespace ZombieLotto
             option = Int32.Parse(Console.ReadLine());
             if (option == 1)
             {
-                userChooseNumbers.ProgramGuessNumbersForUser();
+                UserChooseNumbers.ProgramGuessNumbersForUser();
             }
             else if (option == 2)
             {
-                userChooseNumbers.AskUserForFiveNumbers();
+                UserChooseNumbers.AskUserForFiveNumbers();
             }
             else
             {
@@ -83,7 +83,7 @@ namespace ZombieLotto
         }
     }
 
-    public class userChooseNumbers
+    public class UserChooseNumbers
     {
         public static void ProgramGuessNumbersForUser()
         {
