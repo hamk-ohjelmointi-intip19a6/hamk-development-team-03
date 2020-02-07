@@ -1,6 +1,7 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zombieLotto", "zombieLotto\zombieLotto.csproj", "{E9DE335D-B58A-45A3-BE8C-6DC6224A2F0C}"
 EndProject
 Global
@@ -9,9 +10,15 @@ Global
 		Release|anycpu = Release|anycpu
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E9DE335D-B58A-45A3-BE8C-6DC6224A2F0C}.Debug|anycpu.ActiveCfg = Debug|anycpu
-		{E9DE335D-B58A-45A3-BE8C-6DC6224A2F0C}.Debug|anycpu.Build.0 = Debug|anycpu
-		{E9DE335D-B58A-45A3-BE8C-6DC6224A2F0C}.Release|anycpu.ActiveCfg = Release|anycpu
-		{E9DE335D-B58A-45A3-BE8C-6DC6224A2F0C}.Release|anycpu.Build.0 = Release|anycpu
+		{E9DE335D-B58A-45A3-BE8C-6DC6224A2F0C}.Debug|anycpu.ActiveCfg = Debug|Any CPU
+		{E9DE335D-B58A-45A3-BE8C-6DC6224A2F0C}.Debug|anycpu.Build.0 = Debug|Any CPU
+		{E9DE335D-B58A-45A3-BE8C-6DC6224A2F0C}.Release|anycpu.ActiveCfg = Release|Any CPU
+		{E9DE335D-B58A-45A3-BE8C-6DC6224A2F0C}.Release|anycpu.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {643A1BDD-0E19-438D-80A3-F5A5D828A346}
 	EndGlobalSection
 EndGlobal

@@ -17,8 +17,8 @@ namespace ZombieLotto
     {
         public static void Main(string[] args)
         {
-            StartUserInterface.startmenu();
-            userInterface.UserChooseOption();
+            StartUserInterface.Startmenu();
+            UserInterface.UserChooseOption();
         }
     } 
 }
