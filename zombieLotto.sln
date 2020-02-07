@@ -1,7 +1,7 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zombieLotto", "zombieLotto\zombieLotto.csproj", "{E9DE335D-B58A-45A3-BE8C-6DC6224A2F0C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZombieLottoV2", "ZombieLottoV2\ZombieLottoV2.csproj", "{943C5C77-99DD-42D8-99C7-1B6826F47C9E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,9 +9,9 @@ Global
 		Release|anycpu = Release|anycpu
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E9DE335D-B58A-45A3-BE8C-6DC6224A2F0C}.Debug|anycpu.ActiveCfg = Debug|anycpu
-		{E9DE335D-B58A-45A3-BE8C-6DC6224A2F0C}.Debug|anycpu.Build.0 = Debug|anycpu
-		{E9DE335D-B58A-45A3-BE8C-6DC6224A2F0C}.Release|anycpu.ActiveCfg = Release|anycpu
-		{E9DE335D-B58A-45A3-BE8C-6DC6224A2F0C}.Release|anycpu.Build.0 = Release|anycpu
+		{943C5C77-99DD-42D8-99C7-1B6826F47C9E}.Debug|anycpu.ActiveCfg = Debug|Any CPU
+		{943C5C77-99DD-42D8-99C7-1B6826F47C9E}.Debug|anycpu.Build.0 = Debug|Any CPU
+		{943C5C77-99DD-42D8-99C7-1B6826F47C9E}.Release|anycpu.ActiveCfg = Release|Any CPU
+		{943C5C77-99DD-42D8-99C7-1B6826F47C9E}.Release|anycpu.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,7 +1,6 @@
 ﻿using System;
 
-
-namespace ZombieLotto
+namespace ZombieLottoV2
 {
 
     /*TODO:
@@ -20,7 +19,7 @@ namespace ZombieLotto
             LotteryDay.LotteryNumber();
             StartUserInterface.Startmenu();
             UserInterface.UserChooseOption();
-            
+
         }
-    } 
+    }
 }

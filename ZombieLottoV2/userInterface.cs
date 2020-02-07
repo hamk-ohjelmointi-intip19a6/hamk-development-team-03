@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 
 
-namespace ZombieLotto
+namespace ZombieLottoV2
 {
     /*TODO:
    *
