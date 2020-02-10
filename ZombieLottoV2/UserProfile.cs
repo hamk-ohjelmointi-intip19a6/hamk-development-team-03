@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using Newtonsoft.Json;
 
 namespace ZombieLottoV2
 {
@@ -15,20 +16,26 @@ namespace ZombieLottoV2
         public static int userId;
         public static string username = "admin";
         public static string userPassword = "admin";
-        public static string userAge;
+        public static int userAge;
         public static string userPhone;
         public static string userEmail;
 
-        public static void SignUp(string signUpUsername, string signUpPassword, string signUpAge, string signUpPhone, string signUpEmail)
+        public static void SignUp(string signUpUsername, string signUpPassword, int signUpAge, string signUpPhone, string signUpEmail)
         {
+            User user = new User();
             validUsername = signUpUsername;
             validPassword = signUpPassword;
 
-            username = signUpUsername;
-            userPassword = signUpPassword;
-            userAge = signUpAge;
-            userPhone = signUpPhone;
-            userEmail = signUpEmail;
+            user.name = signUpUsername;
+            user.password = signUpPassword;
+            user.age = signUpAge;
+            user.age = signUpAge;
+            user.phone = signUpPhone;
+            user.email = signUpEmail;
+
+            string jsonObject = JsonConvert.SerializeObject(user);
+            //Console.WriteLine(jsonObject);
+
         }
 
         public static void SignIn(string username, string password)

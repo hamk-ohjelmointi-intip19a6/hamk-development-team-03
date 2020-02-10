@@ -49,7 +49,7 @@ namespace ZombieLottoV2
                     string signUpPassword = Console.ReadLine();
 
                     Console.WriteLine("Age: ");
-                    string signUpAge = Console.ReadLine();
+                    int signUpAge = Int32.Parse(Console.ReadLine());
 
                     Console.WriteLine("Phone: ");
                     string signUpPhone = Console.ReadLine();
