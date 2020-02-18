@@ -2,3 +2,7 @@
 
 hamk-development-team-03
 rahapeli 
+
+**JSON article**
+
+ https://www.c-sharpcorner.com/article/working-with-json-in-C-Sharp/
