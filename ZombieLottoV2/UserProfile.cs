@@ -1,30 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace ZombieLottoV2
 {
     class UserProfile
     {
-        public static string validUsername = "admin";
-        public static string validPassword = "admin";
+        public static int currentId;
 
-        public static int userId;
-        public static string username = "admin";
-        public static string userPassword = "admin";
-        public static int userAge;
-        public static string userPhone;
-        public static string userEmail;
+        static string filepath = "../../../Users.json";
 
         public static void SignUp(string signUpUsername, string signUpPassword, int signUpAge, string signUpPhone, string signUpEmail)
         {
             User user = new User();
-            validUsername = signUpUsername;
-            validPassword = signUpPassword;
 
             user.name = signUpUsername;
             user.password = signUpPassword;
@@ -33,22 +24,58 @@ namespace ZombieLottoV2
             user.phone = signUpPhone;
             user.email = signUpEmail;
 
-            string jsonObject = JsonConvert.SerializeObject(user);
-            //Console.WriteLine(jsonObject);
+            string jsonString = JsonConvert.SerializeObject(user);
 
+            JObject jsonObject = JObject.Parse(jsonString);
+
+            Console.WriteLine(jsonObject);
+
+            string result = string.Empty;
+            using (StreamWriter r = new StreamWriter (filepath, append: true))
+            {
+                r.WriteLine(jsonObject);
+                r.Close();
+            }
+            //File.WriteAllText(filepath, jsonString);
+
+           
         }
 
         public static void SignIn(string username, string password)
         {
-            if (username == validUsername && password == validPassword)
+            string result = string.Empty;
+            using (StreamReader r = new StreamReader(filepath))
+            {
+                result = r.ReadToEnd();
+                r.Close();
+            }
+
+            dynamic dynJson = JsonConvert.DeserializeObject(result);
+
+            foreach (var item in dynJson)
+            {
+                if(item.name == username && item.password == password)
+                {
+                    currentId = item.id;
+                    StartUserInterface.successfulSignIn = true;
+                    //Console.WriteLine(Convert.ToString(item.id));
+                }
+            }
+
+            if (StartUserInterface.successfulSignIn == false)
+            {
+                Console.WriteLine("Wrong username or password");
+            }
+
+
+            /*if (jsonObject.name == username && jsonObject.password == password)
             {
                 StartUserInterface.successfulSignIn = true;
-                userId = 0;
             }
             else
             {
              //   MessageBox.Show("Wrong Username or Password", "Error");
-            }
+            }*/
         }
     }
 }

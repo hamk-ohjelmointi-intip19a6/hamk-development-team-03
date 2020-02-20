@@ -1,0 +1,18 @@
+
+[{
+  "id": 0,
+  "name": "admin",
+  "password": "admin",
+  "age": 20,
+  "phone": "555",
+  "email": "admin@zombielotto.com"
+},
+{
+  "id": 1,
+  "name": "Paavo",
+  "password": "gg",
+  "age": 18,
+  "phone": "0442755266",
+  "email": "paavo.latvaniemi@gmail.com"
+}]
+
