@@ -13,13 +13,6 @@ namespace ZombieLottoV2
 
         static string filepath = "../../../Users.json";
 
-        public static int userId;
-        public static string username = "admin";
-        public static string userPassword = "admin";
-        public static int userAge;
-        public static string userPhone;
-        public static string userEmail;
-
         public static void SignUp(string signUpUsername, string signUpPassword, int signUpAge, string signUpPhone, string signUpEmail)
         {
             User user = new User();
