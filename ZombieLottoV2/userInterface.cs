@@ -6,12 +6,8 @@ namespace ZombieLottoV2
 {
     /*TODO:
    *
-   * ID.(STATUS). TASK
-    1.() Ask user how many line number he/she want to add
-        a) Note! There is no limit how many number line user want to add
-    2.(In progress) Zombielotto program guess 5 numbers between 1-25 when money is 10 dollar.
-    3.() Program save 5 numbers to JSON file as won number line
-
+    3.(In progress) Program save 5 numbers to JSON file as won number line
+    4.(In progress) Program save 5 numbers to JSON file as user number line base on user Id
    *
    *
    *
@@ -83,70 +79,6 @@ namespace ZombieLottoV2
             {
                 Console.WriteLine("Choose 1 or 2 to continue");
             }
-        }
-    }
-
-    public class UserChooseNumbers
-    {
-        public static void ProgramGuessNumbersForUser()
-        {
-            int[] lineNumber = new int[5];
-            Random randomNumbers = new Random();
-
-            for (int round = 0; round < 5; round++)
-            {
-                int num = randomNumbers.Next(1, 25);
-                lineNumber[round] = num;
-            }
-            Console.WriteLine("Your number line is: " + "{0}", string.Join(", ", lineNumber));
-            Console.ReadLine();
-        }
-
-        public static void AskUserForFiveNumbers()
-        {
-            int[] lineNumber = new int[5];
-
-            for (int round = 0; round < 5; round++)
-            {
-                int roundStartsFromOne = round + 1;
-                Console.WriteLine("Choose your number " + roundStartsFromOne + ":");
-                string readLine = Console.ReadLine();
-                int num = Int32.Parse(readLine);
-                if (int.TryParse(readLine, out int n) && num < 1 | num > 25)
-                {
-                    Console.WriteLine("Wrong number. Choose between 1-25");
-                }
-                else
-                {
-                    lineNumber[round] = num;
-                }
-            }
-            Console.WriteLine("Your number line is: " + "{0}", string.Join(", ", lineNumber));
-            Console.ReadLine();
-        }
-    }
-
-
-    public class LotteryDay
-    {
-        public static void LotteryNumber()
-        {
-            zombieLottoLotteryDay receivedMoney = new zombieLottoLotteryDay();
-
-            double getMoneyValue = zombieLottoLotteryDay.ReceivedMoney();
-            Console.WriteLine("Collected money is: " + getMoneyValue);
-        }
-    }
-
-    public class zombieLottoLotteryDay
-    {
-        static double receivedMoney { get; set; }
-      
-        public static double ReceivedMoney()
-        {
-            // this is test value for receivedMoney 
-            receivedMoney = 10.00;
-            return receivedMoney;
         }
     }
 }
