@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Windows;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace ZombieLottoV2
 {
@@ -12,9 +10,34 @@ namespace ZombieLottoV2
         public static int currentId;
 
         static string filepath = "../../../Users.json";
+        static string path = "../../../LotteryDay.json";
 
         public static void SignUp(string signUpUsername, string signUpPassword, int signUpAge, string signUpPhone, string signUpEmail)
         {
+            List<User> list = new List<User>();
+
+            //-- Get all existing users from json -- 
+            string result = string.Empty;
+            using (StreamReader r = new StreamReader(filepath))
+            {
+                result = r.ReadToEnd();
+                r.Close();
+            }
+
+            dynamic dynJson = JsonConvert.DeserializeObject(result);
+
+            foreach (var item in dynJson) 
+            {
+                User userOld = new User();
+                userOld.name = item.name;
+                userOld.password = item.password;
+                userOld.age = item.age;
+                userOld.phone = item.phone;
+                userOld.email = item.email;
+
+                list.Add(userOld);
+            }
+            //-- New user account --            
             User user = new User();
 
             user.name = signUpUsername;
@@ -23,20 +46,17 @@ namespace ZombieLottoV2
             user.age = signUpAge;
             user.phone = signUpPhone;
             user.email = signUpEmail;
+ 
+            list.Add(user);
 
-            string jsonString = JsonConvert.SerializeObject(user);
+            //-- Writes all users into json file
+            string jsonString = JsonConvert.SerializeObject(list, Formatting.Indented);
 
-            JObject jsonObject = JObject.Parse(jsonString);
-
-            Console.WriteLine(jsonObject);
-
-            string result = string.Empty;
             using (StreamWriter r = new StreamWriter(filepath))
             {
-                r.WriteLine(jsonObject);
+                r.WriteLine(jsonString);
                 r.Close();
             }
-            //File.WriteAllText(filepath, jsonString);
            
         }
 
@@ -48,7 +68,6 @@ namespace ZombieLottoV2
                 result = r.ReadToEnd();
                 r.Close();
             }
-
             dynamic dynJson = JsonConvert.DeserializeObject(result);
 
             foreach (var item in dynJson)
@@ -65,20 +84,18 @@ namespace ZombieLottoV2
             {
                 Console.WriteLine("Wrong username or password");
             }
+        }
 
-
-            /*if (jsonObject.name == username && jsonObject.password == password)
-            User jsonObject = JsonConvert.DeserializeObject<User>(result);
-            //Console.WriteLine(jsonObject);
-
-            if (jsonObject.name == username && jsonObject.password == password)
+        public static void Jee()
+        {
+            string result = string.Empty;
+            using (StreamReader r = new StreamReader(path))
             {
-                StartUserInterface.successfulSignIn = true;
+                result = r.ReadToEnd();
+                r.Close();
             }
-            else
-            {
-             //   MessageBox.Show("Wrong Username or Password", "Error");
-            }*/
+            LotteryDay numJson = JsonConvert.DeserializeObject<LotteryDay>(result);
+            Console.WriteLine(Convert.ToString(numJson.numOne));
         }
     }
 }
