@@ -1,21 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Serialization;
 
 namespace ZombieLottoV2
 {
     public class LotteryDay
     {
-
-        public int numOne = 2;
-        public int numTwo = 3;
-        public int numThree = 4;
-        public int numFour = 5;
-        public int numFive = 6;
-
-
         static double receivedMoney { get; set; }
+        public static int[] zombieLottoLineNumber;
+        public int[] lineNumber;
+        public string date;
 
         public static double ReceivedMoney()
         {
@@ -41,34 +38,40 @@ namespace ZombieLottoV2
                     zombieLottolineNumber[round] = num;
                 }
                 Console.WriteLine("ZombieLotto line number: " + "{0}", string.Join(", ", zombieLottolineNumber));
+                zombieLottoLineNumber = zombieLottolineNumber;  
             }
-
         }
 
         public static void AddToJson()
         {
-            LotteryDay lotteryday = new LotteryDay();
-            string JSONresult = JsonConvert.SerializeObject(lotteryday);
             string path = "../../../LotteryDay.json";
+            List<LotteryDay> LottoNumberList = new List<LotteryDay>();
 
-            if (File.Exists(path))
+            //-- Get all existing lottery numbers -- 
+            string result = string.Empty;
+
+            using (StreamReader r = new StreamReader(path))
             {
-                File.Delete(path);
-                using (var tw = new StreamWriter(path, true))
-                {
-                    tw.WriteLine(JSONresult.ToString());
-                    tw.Close();
-                }
+                result = r.ReadToEnd();
+                r.Close();
             }
-            else if (!File.Exists(path))
+
+            LottoNumberList = JsonConvert.DeserializeObject<List<LotteryDay>>(result);
+
+            // New existing lottery numbers          
+            LotteryDay NewLottoNumbers = new LotteryDay();
+            NewLottoNumbers.lineNumber = zombieLottoLineNumber;
+            NewLottoNumbers.date = DateTime.Today.ToString("dd/MM/yyyy");
+            LottoNumberList.Add(NewLottoNumbers);
+
+            //-- Writes all lottery numbers into LotteryDay.json file
+            string jsonString = JsonConvert.SerializeObject(LottoNumberList, Formatting.Indented);
+
+            using (StreamWriter r = new StreamWriter(path))
             {
-                using (var tw = new StreamWriter(path, true))
-                {
-                    tw.WriteLine(JSONresult.ToString());
-                    tw.Close();
-                }
+                r.WriteLine(jsonString);
+                r.Close();
             }
         }
-
     }
 }

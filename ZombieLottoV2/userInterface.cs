@@ -70,10 +70,12 @@ namespace ZombieLottoV2
             if (option == 1)
             {
                 UserChooseNumbers.ProgramGuessNumbersForUser();
+                UserChooseNumbers.AddToJson();
             }
             else if (option == 2)
             {
                 UserChooseNumbers.AskUserForFiveNumbers();
+                UserChooseNumbers.AddToJson();
             }
             else
             {

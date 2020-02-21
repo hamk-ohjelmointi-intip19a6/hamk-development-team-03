@@ -1,0 +1,35 @@
+[
+  {
+    "userID": 0,
+    "date": "21/02/2020",
+    "userLotteryNumber": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  {
+    "userID": 0,
+    "date": "21/02/2020",
+    "userLotteryNumber": [
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  {
+    "userID": 2,
+    "date": "21/02/2020",
+    "userLotteryNumber": [
+      24,
+      22,
+      21,
+      5,
+      4
+    ]
+  }
+]
