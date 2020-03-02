@@ -5,12 +5,11 @@ using Newtonsoft.Json;
 
 namespace ZombieLottoV2
 {
-    class UserProfile
+    public class UserProfile
     {
         public static int currentId;
 
         static string filepath = "../../../Users.json";
-        static string path = "../../../LotteryDay.json";
 
         public static void SignUp(string signUpUsername, string signUpPassword, int signUpAge, string signUpPhone, string signUpEmail)
         {
@@ -86,16 +85,51 @@ namespace ZombieLottoV2
             }
         }
 
-        public static void Jee()
+        public static void Balance(double amount, bool add)
         {
             string result = string.Empty;
-            using (StreamReader r = new StreamReader(path))
+            double newBalance = 0;
+            List<User> list = new List<User>();
+
+            using (StreamReader r = new StreamReader(filepath))
             {
                 result = r.ReadToEnd();
                 r.Close();
             }
-            LotteryDay numJson = JsonConvert.DeserializeObject<LotteryDay>(result);
-            Console.WriteLine(Convert.ToString(numJson.numOne));
+            dynamic dynJson = JsonConvert.DeserializeObject(result);
+
+            foreach (var item in dynJson)
+            {
+                if (item.id == currentId && add)
+                {
+                    newBalance = item.balance + amount;
+                }
+                else if (item.id == currentId && !add)
+                {
+                    newBalance = item.balance - amount;
+                }
+                else
+                {
+                    newBalance = item.balance;
+                }
+                User userOld = new User();
+                userOld.name = item.name;
+                userOld.password = item.password;
+                userOld.age = item.age;
+                userOld.phone = item.phone;
+                userOld.email = item.email;
+                userOld.balance = newBalance;
+
+
+                list.Add(userOld);
+            }
+            string jsonString = JsonConvert.SerializeObject(list, Formatting.Indented);
+
+            using (StreamWriter r = new StreamWriter(filepath))
+            {
+                r.WriteLine(jsonString);
+                r.Close();
+            }
         }
     }
 }

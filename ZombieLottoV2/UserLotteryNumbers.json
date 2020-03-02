@@ -8,7 +8,8 @@
       5,
       6,
       7
-    ]
+    ],
+    "status": null
   },
   {
     "userID": 0,
@@ -19,7 +20,8 @@
       6,
       7,
       8
-    ]
+    ],
+    "status": null
   },
   {
     "userID": 2,
@@ -30,6 +32,43 @@
       21,
       5,
       4
-    ]
+    ],
+    "status": null
+  },
+  {
+    "userID": 1,
+    "date": "02.03.2020",
+    "userLotteryNumber": [
+      16,
+      23,
+      4,
+      9,
+      1
+    ],
+    "status": null
+  },
+  {
+    "userID": 0,
+    "date": "02.03.2020",
+    "userLotteryNumber": [
+      14,
+      12,
+      6,
+      15,
+      3
+    ],
+    "status": null
+  },
+  {
+    "userID": 0,
+    "date": "02.03.2020",
+    "userLotteryNumber": [
+      10,
+      10,
+      2,
+      14,
+      13
+    ],
+    "status": null
   }
 ]
