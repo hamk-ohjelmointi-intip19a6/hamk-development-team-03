@@ -11,6 +11,7 @@ namespace ZombieLottoV2
         public int userID;
         public string date;
         public int[] userLotteryNumber;
+        public bool? status;
         
 
         public static void ProgramGuessNumbersForUser()
@@ -72,6 +73,7 @@ namespace ZombieLottoV2
             NewLottoNumbers.userID = UserProfile.currentId;
             NewLottoNumbers.userLotteryNumber = lineNumber;
             NewLottoNumbers.date = DateTime.Today.ToString("dd/MM/yyyy");
+            NewLottoNumbers.status = null;
             LottoNumberList.Add(NewLottoNumbers);
 
             //-- Writes all lottery numbers into LotteryDay.json file
