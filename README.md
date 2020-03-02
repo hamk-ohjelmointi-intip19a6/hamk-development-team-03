@@ -6,3 +6,6 @@ rahapeli
 **JSON article**
 
 https://www.softwaretestinghelp.com/create-json-objects-using-c/
+
+Read JSON data 
+https://www.example-code.com/csharp/json_array_load_and_parse.asp
