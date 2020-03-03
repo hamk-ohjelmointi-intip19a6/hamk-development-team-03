@@ -99,11 +99,35 @@
     "userID": 1,
     "date": "03.03.2020",
     "userLotteryNumber": [
-      10,
-      4,
-      21,
+      20,
+      11,
       24,
-      17
+      9,
+      18
+    ],
+    "status": null
+  },
+  {
+    "userID": 0,
+    "date": "03.03.2020",
+    "userLotteryNumber": [
+      18,
+      11,
+      24,
+      18,
+      22
+    ],
+    "status": null
+  },
+  {
+    "userID": 0,
+    "date": "03.03.2020",
+    "userLotteryNumber": [
+      5,
+      10,
+      14,
+      20,
+      2
     ],
     "status": null
   }

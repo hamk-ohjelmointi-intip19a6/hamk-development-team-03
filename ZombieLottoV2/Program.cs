@@ -16,11 +16,12 @@ namespace ZombieLottoV2
     {
         public static void Main(string[] args)
         {
+            //UserHistory.CheckNumbers();
             //LotteryDay.LotteryNumber();
             UserInterface.Startmenu();
             while (true)
             {
-                Console.WriteLine(User.NextId);
+                //Console.WriteLine(User.NextId);
                 UserInterface.MainMenu();
             }
             //Adding or removing balance
