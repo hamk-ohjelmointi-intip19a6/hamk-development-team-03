@@ -57,12 +57,12 @@ namespace ZombieLottoV2
                 if(item.name == username && item.password == password)
                 {
                     currentId = item.id;
-                    StartUserInterface.successfulSignIn = true;
+                    UserInterface.successfulSignIn = true;
                     //Console.WriteLine(Convert.ToString(item.id));
                 }
             }
 
-            if (StartUserInterface.successfulSignIn == false)
+            if (UserInterface.successfulSignIn == false)
             {
                 Console.WriteLine("Wrong username or password");
             }
