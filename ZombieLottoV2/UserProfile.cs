@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using Newtonsoft.Json;
 
 namespace ZombieLottoV2
@@ -9,19 +8,11 @@ namespace ZombieLottoV2
     {
         public static int currentId;
 
-        static string filepath = "../../../Users.json";
-
         public static void SignUp(string signUpUsername, string signUpPassword, int signUpAge, string signUpPhone, string signUpEmail)
         {
             List<User> list = new List<User>();
 
-            //-- Get all existing users from json -- 
-            string result = string.Empty;
-            using (StreamReader r = new StreamReader(filepath))
-            {
-                result = r.ReadToEnd();
-                r.Close();
-            }
+            string result = JsonHandling.JsonRead("../../../Users.json");
 
             dynamic dynJson = JsonConvert.DeserializeObject(result);
 
@@ -51,22 +42,14 @@ namespace ZombieLottoV2
             //-- Writes all users into json file
             string jsonString = JsonConvert.SerializeObject(list, Formatting.Indented);
 
-            using (StreamWriter r = new StreamWriter(filepath))
-            {
-                r.WriteLine(jsonString);
-                r.Close();
-            }
+            JsonHandling.JsonWrite("../../../Users.json", jsonString);
            
         }
 
         public static void SignIn(string username, string password)
         {
-            string result = string.Empty;
-            using (StreamReader r = new StreamReader(filepath))
-            {
-                result = r.ReadToEnd();
-                r.Close();
-            }
+            string result = JsonHandling.JsonRead("../../../Users.json");
+
             dynamic dynJson = JsonConvert.DeserializeObject(result);
 
             foreach (var item in dynJson)
@@ -87,15 +70,11 @@ namespace ZombieLottoV2
 
         public static void Balance(double amount, bool add)
         {
-            string result = string.Empty;
             double newBalance = 0;
             List<User> list = new List<User>();
 
-            using (StreamReader r = new StreamReader(filepath))
-            {
-                result = r.ReadToEnd();
-                r.Close();
-            }
+            string result = JsonHandling.JsonRead("../../../Users.json");
+
             dynamic dynJson = JsonConvert.DeserializeObject(result);
 
             foreach (var item in dynJson)
@@ -125,11 +104,7 @@ namespace ZombieLottoV2
             }
             string jsonString = JsonConvert.SerializeObject(list, Formatting.Indented);
 
-            using (StreamWriter r = new StreamWriter(filepath))
-            {
-                r.WriteLine(jsonString);
-                r.Close();
-            }
+            JsonHandling.JsonWrite("../../../Users.json", jsonString);
         }
     }
 }

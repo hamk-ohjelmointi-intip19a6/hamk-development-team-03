@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Newtonsoft.Json;
 
 
@@ -14,7 +15,7 @@ namespace ZombieLottoV2
    *
    * */
 
-    class StartUserInterface
+    public class UserInterface
     {
         // startmenu: Paavo Latvaniemi 2020
         // program doesn't go to the main menu if successfulSignIn is false
@@ -57,10 +58,8 @@ namespace ZombieLottoV2
                 }
             }
         }
-    }
 
-    public class UserInterface
-    {
+
         public static void UserChooseOption()
         {
             // userInterface: Rohullah Karimi 2020
@@ -81,6 +80,43 @@ namespace ZombieLottoV2
             {
                 Console.WriteLine("Choose 1 or 2 to continue");
             }
+        }
+
+        public static void UserHistory()
+        {
+            List<UserChooseNumbers> LottoNumberList = new List<UserChooseNumbers>();
+
+            string result = JsonHandling.JsonRead("../../../UserLotteryNumbers.json");
+
+            LottoNumberList = JsonConvert.DeserializeObject<List<UserChooseNumbers>>(result);
+
+            Console.WriteLine($"Date\t\tNumbers\t\t\tStatus");
+            Console.WriteLine("-------------------------------------------------");
+
+            foreach (var item in LottoNumberList)
+            {
+                if (item.userID == UserProfile.currentId)
+                {
+                    string status;
+                    if (item.status == true)
+                    {
+                        status = "Win";
+                    }
+                    else if (item.status == false)
+                    {
+                        status = "Loss";
+                    }
+                    else
+                    {
+                        status = "Not drawn";
+                    }
+
+                    string s = $"{item.date}" + $"\t" + $"{String.Join(", ", item.userLotteryNumber)}" + "      \t" + $"{status}";
+                    Console.Write(s);
+                    Console.WriteLine();
+                }
+            }
+            Console.WriteLine();
         }
     }
 }
