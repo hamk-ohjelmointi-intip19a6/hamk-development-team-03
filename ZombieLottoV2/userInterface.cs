@@ -24,13 +24,16 @@ namespace ZombieLottoV2
         {
             while (successfulSignIn == false)
             {
-                Console.WriteLine("[1]Sign in\nor\n[2]Sign up");
+                Console.WriteLine("Start menu");
+                Console.WriteLine("-------------------------");
+                Console.WriteLine("[1]Sign in\n[2]Sign up");
                 var choice = Console.ReadLine();
                 if (choice == "1")
                 {
+                    Console.Clear();
                     Console.WriteLine("Username: ");
                     string signInUsername = Console.ReadLine();
-
+                    Console.Clear();
                     Console.WriteLine("Password: ");
                     string signInPassword = Console.ReadLine();
 
@@ -56,22 +59,54 @@ namespace ZombieLottoV2
 
                     UserProfile.SignUp(signUpUsername, signUpPassword, signUpAge, signUpPhone, signUpEmail);
                 }
+                Console.Clear();
             }
+        }
+
+        public static void MainMenu()
+        {
+            Console.WriteLine("Main menu");
+            Console.WriteLine("-------------------------");
+            Console.WriteLine(
+                "[1] - My Profile\n" +
+                "[2] - History\n" +
+                "[3] - Buy Lottery line\n" +
+                "[4] - Exit"
+                );
+            string userInput = Console.ReadLine();
+
+            if(userInput == "1")
+            {
+                Console.Clear();
+                Userprofile();
+            }
+            else if (userInput == "2")
+            {
+                Console.Clear();
+                UserHistory();
+            }
+
+            else if (userInput == "3")
+            {
+                Console.Clear();
+                UserChooseOption();
+            }
+            Console.Clear();
         }
 
 
         public static void UserChooseOption()
         {
             // userInterface: Rohullah Karimi 2020
-            int option;
+            string option;
             Console.WriteLine("Choose your option\n [1] Completed line \n [2] Choose your numbers");
-            option = Int32.Parse(Console.ReadLine());
-            if (option == 1)
+            option = Console.ReadLine();
+            if (option == "1")
             {
                 UserChooseNumbers.ProgramGuessNumbersForUser();
                 UserChooseNumbers.AddToJson();
             }
-            else if (option == 2)
+            else if (option == "2")
             {
                 UserChooseNumbers.AskUserForFiveNumbers();
                 UserChooseNumbers.AddToJson();
@@ -80,6 +115,7 @@ namespace ZombieLottoV2
             {
                 Console.WriteLine("Choose 1 or 2 to continue");
             }
+            Console.Clear();
         }
 
         public static void UserHistory()
@@ -116,7 +152,37 @@ namespace ZombieLottoV2
                     Console.WriteLine();
                 }
             }
-            Console.WriteLine();
+            Console.ReadLine();
+            Console.Clear();
+        }
+
+        public static void Userprofile()
+        {
+            string result = JsonHandling.JsonRead("../../../Users.json");
+            List<User> userList = new List<User>();
+
+            userList = JsonConvert.DeserializeObject<List<User>>(result);
+            foreach (var item in userList)
+            {
+                if(item.id == UserProfile.currentId)
+                {
+                    string s = $"Username:\t{item.name}" + "\n" + $"Age:\t\t{item.age}" + "\n" + $"Phone:   \t{item.phone}" + "\n" + $"Email:\t\t{item.email}" + "\n" + $"Balance:\t{item.balance} $";
+                    Console.WriteLine(s);
+                }
+            }
+            Console.WriteLine("\n[1]Add balance");
+            
+            string userInput = Console.ReadLine();
+
+            if(userInput == "1")
+            {
+                Console.WriteLine("How much do you want to add?: ");
+                    int input = Convert.ToInt32(Console.ReadLine());
+
+                UserProfile.Balance(input, true);
+                
+            }
+            userInput = null;
         }
     }
 }

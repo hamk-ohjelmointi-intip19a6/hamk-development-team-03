@@ -18,13 +18,13 @@ namespace ZombieLottoV2
         {
             //LotteryDay.LotteryNumber();
             UserInterface.Startmenu();
-            //UserInterface.UserHistory();
-
+            while (true)
+            {
+                UserInterface.MainMenu();
+            }
             //Adding or removing balance
             //UserProfile.Balance(amount, add:true|remove:false);
             //UserProfile.Balance(20.0, true);
-
-            UserInterface.UserChooseOption();
 
         }
     }
