@@ -1,15 +1,15 @@
 [
   {
-    "id": 2,
+    "id": 0,
     "name": "admin",
     "password": "admin",
     "age": 20,
     "phone": "555",
     "email": "admin@zombielotto.com",
-    "balance": 1022.0
+    "balance": 1062.0
   },
   {
-    "id": 3,
+    "id": 1,
     "name": "Paavo",
     "password": "gg",
     "age": 18,

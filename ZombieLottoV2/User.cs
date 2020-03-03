@@ -2,7 +2,7 @@
 {
     internal class User
     {
-        static int NextId = 0;
+        public static int NextId = 0;
 
         public User()
         {

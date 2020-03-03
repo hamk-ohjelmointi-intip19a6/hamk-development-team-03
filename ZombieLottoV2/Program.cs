@@ -20,6 +20,7 @@ namespace ZombieLottoV2
             UserInterface.Startmenu();
             while (true)
             {
+                Console.WriteLine(User.NextId);
                 UserInterface.MainMenu();
             }
             //Adding or removing balance

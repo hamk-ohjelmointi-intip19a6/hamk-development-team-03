@@ -159,10 +159,11 @@ namespace ZombieLottoV2
         public static void Userprofile()
         {
             string result = JsonHandling.JsonRead("../../../Users.json");
-            List<User> userList = new List<User>();
 
-            userList = JsonConvert.DeserializeObject<List<User>>(result);
-            foreach (var item in userList)
+
+            dynamic dynJson = JsonConvert.DeserializeObject(result);
+
+            foreach (var item in dynJson)
             {
                 if(item.id == UserProfile.currentId)
                 {
