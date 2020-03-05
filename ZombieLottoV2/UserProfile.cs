@@ -69,6 +69,7 @@ namespace ZombieLottoV2
         }
 
         public static void Balance(double amount, bool add)
+
         {
             double newBalance = 0;
             List<User> list = new List<User>();
@@ -106,5 +107,6 @@ namespace ZombieLottoV2
 
             JsonHandling.JsonWrite("../../../Users.json", jsonString);
         }
+       
     }
 }

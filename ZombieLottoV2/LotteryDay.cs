@@ -9,15 +9,20 @@ namespace ZombieLottoV2
 {
     public class LotteryDay
     {
-        static double receivedMoney { get; set; }
+        public static double receivedMoney { get; set; }
         public static int[] zombieLottoLineNumber;
         public int[] lineNumber;
         public string date;
+   
 
         public static double ReceivedMoney()
         {
+
+            string result = JsonHandling.JsonRead("../../../ReceivedMoney.json");
+            var dynJson = JObject.Parse(result);
+
             // this is test value for receivedMoney 
-            receivedMoney = 10.00;
+            receivedMoney = Convert.ToDouble(dynJson["receivedMoney"]);
             return receivedMoney;
         }
 
@@ -26,7 +31,7 @@ namespace ZombieLottoV2
             LotteryDay receivedMoney = new LotteryDay();
 
             double getMoneyValue = LotteryDay.ReceivedMoney();
-            if (getMoneyValue >= 10)
+            if (getMoneyValue >= 4)
             {
                 // guess the 5 numbers
                 int[] zombieLottolineNumber = new int[5];
