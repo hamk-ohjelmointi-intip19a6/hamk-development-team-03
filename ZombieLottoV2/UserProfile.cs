@@ -68,6 +68,11 @@ namespace ZombieLottoV2
             }
         }
 
+        public static void SignOut()
+        {
+            UserInterface.successfulSignIn = false;
+        }
+
         public static void Balance(double amount, bool add)
 
         {

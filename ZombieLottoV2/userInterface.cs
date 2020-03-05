@@ -71,7 +71,7 @@ namespace ZombieLottoV2
                 "[1] - My Profile\n" +
                 "[2] - History\n" +
                 "[3] - Buy Lottery line\n" +
-                "[4] - Exit"
+                "[4] - Sign Out"
                 );
             string userInput = Console.ReadLine();
 
@@ -90,6 +90,10 @@ namespace ZombieLottoV2
             {
                 Console.Clear();
                 UserChooseOption();
+            }
+            else if (userInput == "4")
+            {
+                UserProfile.SignOut();
             }
             Console.Clear();
         }

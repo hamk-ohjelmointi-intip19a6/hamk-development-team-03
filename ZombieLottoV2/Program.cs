@@ -18,17 +18,20 @@ namespace ZombieLottoV2
         {
             //UserHistory.CheckNumbers();
             //LotteryDay.LotteryNumber();
-            LotteryDay.receivedMoney = LotteryDay.ReceivedMoney();
-            LotteryDay.LotteryNumber();
-            UserInterface.Startmenu();
             while (true)
             {
-                //Console.WriteLine(User.NextId);
-                UserInterface.MainMenu();
+                LotteryDay.receivedMoney = LotteryDay.ReceivedMoney();
+                LotteryDay.LotteryNumber();
+                UserInterface.Startmenu();
+                while (UserInterface.successfulSignIn)
+                {
+                    //Console.WriteLine(User.NextId);
+                    UserInterface.MainMenu();
+                }
+                //Adding or removing balance
+                //UserProfile.Balance(amount, add:true|remove:false);
+                //UserProfile.Balance(20.0, true);
             }
-            //Adding or removing balance
-            //UserProfile.Balance(amount, add:true|remove:false);
-            //UserProfile.Balance(20.0, true);
 
         }
     }
