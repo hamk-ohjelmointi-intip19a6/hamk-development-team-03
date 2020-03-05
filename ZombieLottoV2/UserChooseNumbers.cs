@@ -20,9 +20,17 @@ namespace ZombieLottoV2
             lineNumber = new int[5];
             Random randomNumbers = new Random();
 
+            List<int> listNumbers = new List<int>();
+            int num;
             for (int round = 0; round < 5; round++)
             {
-                int num = randomNumbers.Next(1, 25);
+                do
+                {
+                    num = randomNumbers.Next(1, 25);
+                } while (listNumbers.Contains(num));
+                listNumbers.Add(num);
+
+               // int num = randomNumbers.Next(1, 25);
                 lineNumber[round] = num;
             }
             Console.WriteLine("Program guessed line number is: " + "{0}", string.Join(", ", lineNumber));

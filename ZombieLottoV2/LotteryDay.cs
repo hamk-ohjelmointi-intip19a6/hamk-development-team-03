@@ -37,9 +37,17 @@ namespace ZombieLottoV2
                 int[] zombieLottolineNumber = new int[5];
                 Random randomNumbers = new Random();
 
+
+                List<int> listNumbers = new List<int>();
+                int num;
                 for (int round = 0; round < 5; round++)
                 {
-                    int num = randomNumbers.Next(1, 25);
+                    do
+                    {
+                       num = randomNumbers.Next(1, 25);
+                    } while (listNumbers.Contains(num));
+                    listNumbers.Add(num);
+
                     zombieLottolineNumber[round] = num;
                 }
                 Console.WriteLine("ZombieLotto line number: " + "{0}", string.Join(", ", zombieLottolineNumber));
