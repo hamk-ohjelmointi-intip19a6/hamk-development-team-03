@@ -34,6 +34,7 @@ namespace ZombieLottoV2
                 lineNumber[round] = num;
             }
             Console.WriteLine("Program guessed line number is: " + "{0}", string.Join(", ", lineNumber));
+            UserProfile.Balance(2.0, false);
             Console.ReadLine();
         }
 
@@ -57,6 +58,7 @@ namespace ZombieLottoV2
                 }
             }
             Console.WriteLine("Your line number is: " + "{0}", string.Join(", ", lineNumber));
+            UserProfile.Balance(2.0, false);
             Console.ReadLine();
         }
 

@@ -68,6 +68,11 @@ namespace ZombieLottoV2
             }
         }
 
+        public static void SignOut()
+        {
+            UserInterface.successfulSignIn = false;
+        }
+
         public static void Balance(double amount, bool add)
 
         {
@@ -87,6 +92,13 @@ namespace ZombieLottoV2
                 else if (item.id == currentId && !add)
                 {
                     newBalance = item.balance - amount;
+                    LotteryDay.receivedMoney = LotteryDay.receivedMoney + amount;
+
+                    ReceivedMoney moneyObject = new ReceivedMoney();
+                    moneyObject.receivedMoney = LotteryDay.receivedMoney;
+
+                    string jsonString2 = JsonConvert.SerializeObject(moneyObject, Formatting.Indented);
+                    JsonHandling.JsonWrite("../../../ReceivedMoney.json", jsonString2);
                 }
                 else
                 {

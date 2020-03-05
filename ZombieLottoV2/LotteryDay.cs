@@ -51,7 +51,16 @@ namespace ZombieLottoV2
                     zombieLottolineNumber[round] = num;
                 }
                 Console.WriteLine("ZombieLotto line number: " + "{0}", string.Join(", ", zombieLottolineNumber));
-                zombieLottoLineNumber = zombieLottolineNumber;  
+                zombieLottoLineNumber = zombieLottolineNumber;
+
+                ReceivedMoney moneyObject = new ReceivedMoney();
+                moneyObject.receivedMoney = 0.0;
+
+                string jsonString = JsonConvert.SerializeObject(moneyObject, Formatting.Indented);
+                JsonHandling.JsonWrite("../../../ReceivedMoney.json", jsonString);
+
+                AddToJson();
+                UserHistory.CheckNumbers();
             }
         }
 
