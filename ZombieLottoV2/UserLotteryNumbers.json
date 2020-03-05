@@ -310,5 +310,17 @@
       24
     ],
     "status": false
+  },
+  {
+    "userID": 0,
+    "date": "05.03.2020",
+    "userLotteryNumber": [
+      8,
+      9,
+      11,
+      20,
+      18
+    ],
+    "status": null
   }
 ]

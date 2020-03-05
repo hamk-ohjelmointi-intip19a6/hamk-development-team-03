@@ -102,18 +102,48 @@ namespace ZombieLottoV2
         public static void UserChooseOption()
         {
             // userInterface: Rohullah Karimi 2020
+            string result = JsonHandling.JsonRead("../../../Users.json");
+            double balance = 0.0;
+
+            dynamic dynJson = JsonConvert.DeserializeObject(result);
+
+            foreach (var item in dynJson)
+            {
+                if (item.id == UserProfile.currentId)
+                {
+                    balance = item.balance;
+                }
+            }
             string option;
             Console.WriteLine("Choose your option\n [1] Completed line \n [2] Choose your numbers");
             option = Console.ReadLine();
             if (option == "1")
             {
-                UserChooseNumbers.ProgramGuessNumbersForUser();
-                UserChooseNumbers.AddToJson();
+                if (balance >= 2.0)
+                {
+                    UserChooseNumbers.ProgramGuessNumbersForUser();
+                    UserChooseNumbers.AddToJson();
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Not enough balance");
+                    Console.ReadLine();
+                }
             }
             else if (option == "2")
             {
-                UserChooseNumbers.AskUserForFiveNumbers();
-                UserChooseNumbers.AddToJson();
+                if (balance >= 2.0)
+                {
+                    UserChooseNumbers.AskUserForFiveNumbers();
+                    UserChooseNumbers.AddToJson();
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Not enough balance");
+                    Console.ReadLine();
+                }
             }
             else
             {
