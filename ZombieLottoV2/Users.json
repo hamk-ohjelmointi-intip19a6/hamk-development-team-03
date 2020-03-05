@@ -5,30 +5,7 @@
     "password": "admin",
     "age": 20,
     "phone": "555",
-    "email": "admin@zombielotto.com"
-  },
-  {
-    "id": 1,
-    "name": "Paavo",
-    "password": "gg",
-    "age": 18,
-    "phone": "0442755266",
-    "email": "paavo.latvaniemi@gmail.com"
-  },
-  {
-    "id": 2,
-    "name": "R",
-    "password": "R",
-    "age": 3,
-    "phone": "3",
-    "email": "3"
-  },
-  {
-    "id": 3,
-    "name": "kata",
-    "password": "kata",
-    "age": 4,
-    "phone": "fdf",
-    "email": "dfksdf"
+    "email": "admin@zombielotto.com",
+    "balance": 1262.0
   }
 ]

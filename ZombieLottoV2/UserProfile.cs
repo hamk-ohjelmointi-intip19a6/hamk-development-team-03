@@ -1,28 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using Newtonsoft.Json;
 
 namespace ZombieLottoV2
 {
-    class UserProfile
+    public class UserProfile
     {
         public static int currentId;
-
-        static string filepath = "../../../Users.json";
-        static string path = "../../../LotteryDay.json";
 
         public static void SignUp(string signUpUsername, string signUpPassword, int signUpAge, string signUpPhone, string signUpEmail)
         {
             List<User> list = new List<User>();
 
-            //-- Get all existing users from json -- 
-            string result = string.Empty;
-            using (StreamReader r = new StreamReader(filepath))
-            {
-                result = r.ReadToEnd();
-                r.Close();
-            }
+            string result = JsonHandling.JsonRead("../../../Users.json");
 
             dynamic dynJson = JsonConvert.DeserializeObject(result);
 
@@ -52,22 +42,14 @@ namespace ZombieLottoV2
             //-- Writes all users into json file
             string jsonString = JsonConvert.SerializeObject(list, Formatting.Indented);
 
-            using (StreamWriter r = new StreamWriter(filepath))
-            {
-                r.WriteLine(jsonString);
-                r.Close();
-            }
+            JsonHandling.JsonWrite("../../../Users.json", jsonString);
            
         }
 
         public static void SignIn(string username, string password)
         {
-            string result = string.Empty;
-            using (StreamReader r = new StreamReader(filepath))
-            {
-                result = r.ReadToEnd();
-                r.Close();
-            }
+            string result = JsonHandling.JsonRead("../../../Users.json");
+
             dynamic dynJson = JsonConvert.DeserializeObject(result);
 
             foreach (var item in dynJson)
@@ -75,28 +57,56 @@ namespace ZombieLottoV2
                 if(item.name == username && item.password == password)
                 {
                     currentId = item.id;
-                    StartUserInterface.successfulSignIn = true;
+                    UserInterface.successfulSignIn = true;
                     //Console.WriteLine(Convert.ToString(item.id));
                 }
             }
 
-            if (StartUserInterface.successfulSignIn == false)
+            if (UserInterface.successfulSignIn == false)
             {
                 Console.WriteLine("Wrong username or password");
             }
         }
-        /*
-        public static void Jee()
+
+        public static void Balance(double amount, bool add)
+
         {
-            string result = string.Empty;
-            using (StreamReader r = new StreamReader(path))
+            double newBalance = 0;
+            List<User> list = new List<User>();
+
+            string result = JsonHandling.JsonRead("../../../Users.json");
+
+            dynamic dynJson = JsonConvert.DeserializeObject(result);
+
+            foreach (var item in dynJson)
             {
-                result = r.ReadToEnd();
-                r.Close();
+                if (item.id == currentId && add)
+                {
+                    newBalance = item.balance + amount;
+                }
+                else if (item.id == currentId && !add)
+                {
+                    newBalance = item.balance - amount;
+                }
+                else
+                {
+                    newBalance = item.balance;
+                }
+                User userOld = new User();
+                userOld.name = item.name;
+                userOld.password = item.password;
+                userOld.age = item.age;
+                userOld.phone = item.phone;
+                userOld.email = item.email;
+                userOld.balance = newBalance;
+
+
+                list.Add(userOld);
             }
-            LotteryDay numJson = JsonConvert.DeserializeObject<LotteryDay>(result);
-            Console.WriteLine(Convert.ToString(numJson.numOne));
+            string jsonString = JsonConvert.SerializeObject(list, Formatting.Indented);
+
+            JsonHandling.JsonWrite("../../../Users.json", jsonString);
         }
-        */
+       
     }
 }
