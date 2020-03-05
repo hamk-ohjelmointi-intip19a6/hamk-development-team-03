@@ -18,6 +18,8 @@ namespace ZombieLottoV2
         {
             //UserHistory.CheckNumbers();
             //LotteryDay.LotteryNumber();
+            LotteryDay.receivedMoney = LotteryDay.ReceivedMoney();
+            LotteryDay.LotteryNumber();
             UserInterface.Startmenu();
             while (true)
             {
