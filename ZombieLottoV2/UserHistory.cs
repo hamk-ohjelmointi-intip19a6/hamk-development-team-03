@@ -44,6 +44,17 @@ namespace ZombieLottoV2
             }
 
 
+            List<UserChooseNumbers> finalList = new List<UserChooseNumbers>();
+
+
+            foreach (var item2 in listJson)
+            {
+                if (item2.status != null)
+                {
+                    finalList.Add(item2);
+                }
+            }
+
             //-- compare the numbers --
             foreach (var item in List)
             {
@@ -69,12 +80,15 @@ namespace ZombieLottoV2
                 {
                     WinOrLose = false;
                 }
+                item.status = WinOrLose;
+                finalList.Add(item);
 
-                Console.WriteLine(WinOrLose);
-
+                //Console.WriteLine(WinOrLose);
                 //-- status change --
 
             }
+            string jsonString = JsonConvert.SerializeObject(finalList, Formatting.Indented);
+            JsonHandling.JsonWrite("../../../UserLotteryNumbers.json", jsonString);
 
         }
     }

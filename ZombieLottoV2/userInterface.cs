@@ -126,6 +126,7 @@ namespace ZombieLottoV2
 
             LottoNumberList = JsonConvert.DeserializeObject<List<UserChooseNumbers>>(result);
 
+
             Console.WriteLine($"Date\t\tNumbers\t\t\tStatus");
             Console.WriteLine("-------------------------------------------------");
 
@@ -162,6 +163,9 @@ namespace ZombieLottoV2
 
 
             dynamic dynJson = JsonConvert.DeserializeObject(result);
+            Console.WriteLine("User Profile");
+            Console.WriteLine("-------------------------");
+
 
             foreach (var item in dynJson)
             {
