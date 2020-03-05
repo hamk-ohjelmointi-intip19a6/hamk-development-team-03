@@ -85,7 +85,7 @@ namespace ZombieLottoV2
                 Console.WriteLine("Wrong username or password");
             }
         }
-
+        /*
         public static void Jee()
         {
             string result = string.Empty;
@@ -97,5 +97,6 @@ namespace ZombieLottoV2
             LotteryDay numJson = JsonConvert.DeserializeObject<LotteryDay>(result);
             Console.WriteLine(Convert.ToString(numJson.numOne));
         }
+        */
     }
 }
