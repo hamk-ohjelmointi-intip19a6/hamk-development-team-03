@@ -16,7 +16,7 @@ namespace ZombieLottoV2
     {
         public static void Main(string[] args)
         {
-            //UserHistory.CheckNumbers();
+            UserHistory.CheckNumbers();
             //LotteryDay.LotteryNumber();
             UserInterface.Startmenu();
             while (true)
