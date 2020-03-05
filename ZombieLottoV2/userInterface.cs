@@ -26,14 +26,18 @@ namespace ZombieLottoV2
             {
                 Console.WriteLine("Start menu");
                 Console.WriteLine("-------------------------");
-                Console.WriteLine("[1]Sign in\n[2]Sign up");
+                Console.WriteLine("[1] - Sign in\n[2] - Sign up");
                 var choice = Console.ReadLine();
                 if (choice == "1")
                 {
                     Console.Clear();
+                    Console.WriteLine("Sign in");
+                    Console.WriteLine("-------------------------");
                     Console.WriteLine("Username: ");
                     string signInUsername = Console.ReadLine();
                     Console.Clear();
+                    Console.WriteLine("Sign in");
+                    Console.WriteLine("-------------------------");
                     Console.WriteLine("Password: ");
                     string signInPassword = Console.ReadLine();
 
@@ -42,18 +46,19 @@ namespace ZombieLottoV2
                 }
                 else if (choice == "2")
                 {
+                    Console.Clear();
                     Console.WriteLine("Username: ");
                     string signUpUsername = Console.ReadLine();
-
+                    Console.Clear();
                     Console.WriteLine("Password: ");
                     string signUpPassword = Console.ReadLine();
-
+                    Console.Clear();
                     Console.WriteLine("Age: ");
                     int signUpAge = Int32.Parse(Console.ReadLine());
-
+                    Console.Clear();
                     Console.WriteLine("Phone: ");
                     string signUpPhone = Console.ReadLine();
-
+                    Console.Clear();
                     Console.WriteLine("Email: ");
                     string signUpEmail = Console.ReadLine();
 
@@ -187,6 +192,7 @@ namespace ZombieLottoV2
                     Console.WriteLine();
                 }
             }
+            Console.WriteLine("\n[Enter] - Main Menu");
             Console.ReadLine();
             Console.Clear();
         }
@@ -209,8 +215,9 @@ namespace ZombieLottoV2
                     Console.WriteLine(s);
                 }
             }
-            Console.WriteLine("\n[1]Add balance");
-            
+            Console.WriteLine("\n[Enter] - Main Menu");
+            Console.WriteLine("[1] - Add balance");
+
             string userInput = Console.ReadLine();
 
             if(userInput == "1")

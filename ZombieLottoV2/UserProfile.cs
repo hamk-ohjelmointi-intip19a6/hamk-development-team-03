@@ -43,6 +43,7 @@ namespace ZombieLottoV2
             string jsonString = JsonConvert.SerializeObject(list, Formatting.Indented);
 
             JsonHandling.JsonWrite("../../../Users.json", jsonString);
+            User.NextId = 0;
            
         }
 
@@ -71,6 +72,7 @@ namespace ZombieLottoV2
         public static void SignOut()
         {
             UserInterface.successfulSignIn = false;
+            User.NextId = 0;
         }
 
         public static void Balance(double amount, bool add)
@@ -118,6 +120,7 @@ namespace ZombieLottoV2
             string jsonString = JsonConvert.SerializeObject(list, Formatting.Indented);
 
             JsonHandling.JsonWrite("../../../Users.json", jsonString);
+            User.NextId = 0;
         }
        
     }

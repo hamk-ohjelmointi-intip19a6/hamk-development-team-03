@@ -21,11 +21,11 @@ namespace ZombieLottoV2
             while (true)
             {
                 LotteryDay.receivedMoney = LotteryDay.ReceivedMoney();
-                LotteryDay.LotteryNumber();
                 UserInterface.Startmenu();
                 while (UserInterface.successfulSignIn)
                 {
                     //Console.WriteLine(User.NextId);
+                    LotteryDay.LotteryNumber();
                     UserInterface.MainMenu();
                 }
                 //Adding or removing balance
