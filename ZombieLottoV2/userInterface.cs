@@ -148,7 +148,7 @@ namespace ZombieLottoV2
                         status = "Not drawn";
                     }
 
-                    string s = $"{item.date}" + $"\t" + $"{String.Join(", ", item.userLotteryNumber)}" + "      \t" + $"{status}";
+                    string s = $"{item.date}" + $"\t" + $"{String.Join(", ", item.userLotteryNumber)}" + "     \t" + $"{status}";
                     Console.Write(s);
                     Console.WriteLine();
                 }

@@ -24,7 +24,7 @@
     "status": false
   },
   {
-    "userID": 2,
+    "userID": 0,
     "date": "21/02/2020",
     "userLotteryNumber": [
       24,
@@ -140,6 +140,18 @@
       1,
       10,
       18
+    ],
+    "status": false
+  },
+  {
+    "userID": 0,
+    "date": "05.03.2020",
+    "userLotteryNumber": [
+      21,
+      5,
+      17,
+      9,
+      12
     ],
     "status": false
   }
