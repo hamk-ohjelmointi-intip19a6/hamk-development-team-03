@@ -6,7 +6,7 @@
     "age": 20,
     "phone": "555",
     "email": "admin@zombielotto.com",
-    "balance": 166.0
+    "balance": 988.0
   },
   {
     "id": 1,
@@ -15,6 +15,6 @@
     "age": 18,
     "phone": "0442755266",
     "email": "paavo.latvaniemi@gmail.com",
-    "balance": 0.0
+    "balance": 28.0
   }
 ]

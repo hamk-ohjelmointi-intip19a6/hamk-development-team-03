@@ -121,6 +121,7 @@ namespace ZombieLottoV2
             }
             string option;
             Console.WriteLine("Choose your option\n [1] Completed line \n [2] Choose your numbers");
+            Console.WriteLine("\n[Enter] - Main Menu");
             option = Console.ReadLine();
             if (option == "1")
             {

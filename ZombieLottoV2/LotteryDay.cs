@@ -31,7 +31,7 @@ namespace ZombieLottoV2
             LotteryDay receivedMoney = new LotteryDay();
 
             double getMoneyValue = LotteryDay.ReceivedMoney();
-            if (getMoneyValue >= 4)
+            if (getMoneyValue >= 10)
             {
                 // guess the 5 numbers
                 int[] zombieLottolineNumber = new int[5];
