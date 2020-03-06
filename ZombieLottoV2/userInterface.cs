@@ -70,6 +70,11 @@ namespace ZombieLottoV2
 
         public static void MainMenu()
         {
+            string LotteryNumbers = JsonHandling.JsonRead("../../../LotteryDay.json");
+            List<LotteryDay> lineList = JsonConvert.DeserializeObject<List<LotteryDay>>(LotteryNumbers);
+
+            LotteryDay lastObj = lineList[lineList.Count - 1];
+
             Console.WriteLine("Main menu");
             Console.WriteLine("-------------------------");
             Console.WriteLine(
@@ -78,6 +83,7 @@ namespace ZombieLottoV2
                 "[3] - Buy Lottery line\n" +
                 "[4] - Sign Out"
                 );
+            Console.WriteLine("\nLatest numbers: " + String.Join(", ", lastObj.lineNumber));
             string userInput = Console.ReadLine();
 
             if(userInput == "1")

@@ -50,7 +50,7 @@ namespace ZombieLottoV2
 
                     zombieLottolineNumber[round] = num;
                 }
-                Console.WriteLine("ZombieLotto line number: " + "{0}", string.Join(", ", zombieLottolineNumber));
+                //Console.WriteLine("ZombieLotto line number: " + "{0}", string.Join(", ", zombieLottolineNumber));
                 zombieLottoLineNumber = zombieLottolineNumber;
 
                 ReceivedMoney moneyObject = new ReceivedMoney();
